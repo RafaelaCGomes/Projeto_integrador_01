@@ -1,0 +1,104 @@
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f8fb;
+  color: #333;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+body.fade-in {
+  opacity: 1;
+}
+
+header {
+  background-color: #2276ca;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header img {
+  height: 50px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-size: 25px;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+main {
+  padding: 2rem;
+  flex: 1;
+  padding-right: 120px; /* Ajuste conforme a largura dos logos */
+}
+footer {
+  background-color: #2276ca;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+  
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  background-color: transparent !important;
+}
+
+.titulo {
+  text-align: center;
+}
+
+/* Elemento começa fora da tela, à esquerda */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Quando ativado, ele volta pro lugar */
+.slide-in.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.patrocinadores {
+  position: fixed;
+  top: 200px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.patrocinadores img {
+  width: 150px;  /* Tamanho da imagem*/
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.patrocinadores img:hover {
+  transform: scale(1.1); /* Efeito de destaque ao passar o mouse */
+}

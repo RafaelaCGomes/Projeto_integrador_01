@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Contato</title>
+  <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+  <header>
+    <img src="/static/img/logo.png" alt="Logo Rotary">
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('quem_somos') }}">Quem Somos</a>
+      <a href="{{ url_for('eventos') }}">Eventos</a>
+      <a href="{{ url_for('doacao') }}">Doação</a>
+      <a href="{{ url_for('contas') }}">Contas</a>
+      <a href="{{ url_for('contato') }}">Contato</a>
+      <a href="{{ url_for('redes_sociais') }}">Redes Sociais</a>
+      <a href="{{ url_for('galeria') }}">Galeria</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Contato</h1>
+    
+<ul>
+  <li>E-mail: contato@rotarybariri.org</li>
+  <li>Telefone: (14) 1234-5678</li>
+  <li><a href="#">Facebook</a></li>
+  <li><a href="#">Instagram</a></li>
+</ul>
+
+    <p><a href="{{ url_for('home') }}">Voltar</a></p>
+  </main>
+  <footer>
+    Rotary Club Bariri 16 de Junho - Todos os direitos reservados
+  </footer>
+</body>
+</html> -->
+
+{% extends 'base.html' %}
+
+{% block title %}Contato{% endblock %}
+
+{% block content %}
+  <h2>Contato</h2>
+
+  <ul>
+    <li>E-mail: contato@rotarybariri.org</li>
+    <li>Telefone: (14) 1234-5678</li>
+  </ul>
+
+  <p><a href="{{ url_for('home') }}">Voltar</a></p>
+{% endblock %}
