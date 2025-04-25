@@ -1,44 +1,38 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Quem Somos</title>
-  <link rel="stylesheet" href="/static/estilos.css">
-</head>
-<body>
-  <header>
-    <img src="/static/img/logo.png" alt="Logo Rotary">
-    <nav>
-      <a href="{{ url_for('home') }}">Home</a>
-      <a href="{{ url_for('quem_somos') }}">Quem Somos</a>
-      <a href="{{ url_for('eventos') }}">Eventos</a>
-      <a href="{{ url_for('doacao') }}">Doação</a>
-      <a href="{{ url_for('contas') }}">Contas</a>
-      <a href="{{ url_for('contato') }}">Contato</a>
-      <a href="{{ url_for('redes_sociais') }}">Redes Sociais</a>
-      <a href="{{ url_for('galeria') }}">Galeria</a>
-    </nav>
-  </header>
-  <main>
-    <h1>HISTÓRIA DO ROTARY CLUB DE BARIRI-16 DE JUNHO</h1>
-    <p>
-      Fundado aos 16 de junho de 2011, a data foi escolhida como forma de homenagear a alvissareira cidade de Bariri que, vivendo seus tempos de glória, tanto contribui para a promoção do bem-comum.
-      
-      Edificado em chão rochoso, o Rotary Club de Bariri - 16 de junho subsiste até hoje, com a presença de grande parte de seus sócios fundadores, promovendo diuturnamente os valores rotários.
-      
-      Dar de si antes antes de pensar em si!</p>
+{% extends 'base.html' %}
 
-      <h1>PAUL PERCY HARRIS,O FUNDADOR DO ROTARY INTERNATIONAL</h1>
-      <p>Paul Percy Harris nasceu em 1868 em Racine, Wisconsin, mas cresceu com seus avós paternos em Vermont após dificuldades financeiras de seus pais. Ele valorizava muito a educação, o que o levou a se formar em Direito e obter um título honorário pela Universidade de Vermont. Antes de iniciar sua carreira jurídica, passou cinco anos viajando e acumulando experiências diversas como repórter, professor, ator e cowboy. Em 1896, estabeleceu-se como advogado em Chicago, onde atuou por mais de três décadas, sendo reconhecido por seu trabalho ético e engajamento na área jurídica. </p>
-      <br>
-      <p>Em 1905, inspirado pela falta de companheirismo nos círculos empresariais de Chicago e relembrando a camaradagem de sua juventude, fundou com três amigos o primeiro Rotary Club, cujo nome vem do sistema rotativo de encontros. O clube cresceu rapidamente e, já em 1907, realizou seu primeiro projeto comunitário. Paul liderou a expansão do Rotary, que passou de uma associação nacional para internacional, com a fundação do primeiro clube fora dos EUA em 1911, no Canadá. Nessa época também foram definidos os lemas que marcaram a filosofia rotariana, destacando a importância do serviço ao próximo.</p>
-      <br>
-      <p>Paul Harris viajou pelo mundo promovendo o Rotary, recebendo diversas homenagens por sua dedicação ao serviço comunitário, incluindo a “Ordem do Cruzeiro do Sul” no Brasil. Casou-se com Jean Thompson em 1910, com quem viveu até sua morte em 1947, em sua casa chamada Comely Bank. Em suas memórias, Paul destacou a influência dos valores recebidos na infância como base para a criação do Rotary, que segundo ele, nasceu do espírito de serviço, boa fé e tolerância, ideais que procurou transmitir ao longo de sua vida.</p>
-      <br>
-      <p><a href="{{ url_for('home') }}">Voltar</a></p>
-  </main>
-  <footer>
-    Rotary Club Bariri 16 de Junho - Todos os direitos reservados
-  </footer>
-</body>
-</html>
+{% block title %}Quem Somos{% endblock %}
+
+{% block content %}
+  
+<div class="fonte_padrao">
+  <h2>História do Rotary Club de Bariri - 16 de Junho</h2>
+  <p>
+    Fundado aos 16 de junho de 2011, a data foi escolhida como forma de homenagear a alvissareira cidade de Bariri que, vivendo seus tempos de glória, tanto contribui para a promoção do bem-comum.
+  </p>
+  <p>
+    Edificado em chão rochoso, o Rotary Club de Bariri - 16 de junho subsiste até hoje, com a presença de grande parte de seus sócios fundadores, promovendo diuturnamente os valores rotários.
+  </p>
+  <p><strong>Dar de si antes de pensar em si!</strong></p>
+
+  <h2>Paul Percy Harris, o Fundador do Rotary International</h2>
+  <p>
+    Paul Percy Harris nasceu em 1868 em Racine, Wisconsin, mas cresceu com seus avós paternos em Vermont após dificuldades financeiras de seus pais. Ele valorizava muito a educação, o que o levou a se formar em Direito e obter um título honorário pela Universidade de Vermont. Antes de iniciar sua carreira jurídica, passou cinco anos viajando e acumulando experiências diversas como repórter, professor, ator e cowboy.
+  </p>
+  <p>
+    Em 1896, estabeleceu-se como advogado em Chicago, onde atuou por mais de três décadas, sendo reconhecido por seu trabalho ético e engajamento na área jurídica.
+  </p>
+  <p>
+    Em 1905, inspirado pela falta de companheirismo nos círculos empresariais de Chicago e relembrando a camaradagem de sua juventude, fundou com três amigos o primeiro Rotary Club, cujo nome vem do sistema rotativo de encontros. O clube cresceu rapidamente e, já em 1907, realizou seu primeiro projeto comunitário.
+  </p>
+  <p>
+    Paul liderou a expansão do Rotary, que passou de uma associação nacional para internacional, com a fundação do primeiro clube fora dos EUA em 1911, no Canadá. Nessa época também foram definidos os lemas que marcaram a filosofia rotariana, destacando a importância do serviço ao próximo.
+  </p>
+  <p>
+    Paul Harris viajou pelo mundo promovendo o Rotary, recebendo diversas homenagens por sua dedicação ao serviço comunitário, incluindo a “Ordem do Cruzeiro do Sul” no Brasil. Casou-se com Jean Thompson em 1910, com quem viveu até sua morte em 1947, em sua casa chamada Comely Bank.
+  </p>
+  <p>
+    Em suas memórias, Paul destacou a influência dos valores recebidos na infância como base para a criação do Rotary, que segundo ele, nasceu do espírito de serviço, boa fé e tolerância, ideais que procurou transmitir ao longo de sua vida.
+  </p>
+</div>
+  <p><a href="{{ url_for('home') }}">Voltar</a></p>
+{% endblock %}

@@ -102,3 +102,51 @@ footer {
 .patrocinadores img:hover {
   transform: scale(1.1); /* Efeito de destaque ao passar o mouse */
 }
+
+button {
+  background-color: rgb(240, 173, 50);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 120%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Container principal do carrossel */
+.carousel {
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 457 / 157; /* mantém a proporção da imagem original */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.carousel-images {
+  display: flex;
+  animation: slide 12s infinite;
+  width: 300%; /* se tiver 3 imagens, ajuste conforme necessário */
+}
+
+.carousel-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* mostra a imagem completa sem distorcer */
+}
+
+
+/* Definição da animação chamada 'slide'*/
+@keyframes slide {
+  0% {  transform: translateX(0%); }     /* Começa com a primeira imagem visível */
+    /* Move para mostrar a seg33.33%  { transform: translateX(-100%); }unda imagem */
+  /* 66.66%  { transform: translateX(-200%); }  Move para mostrar a terceira imagem */
+  100% { transform: translateX(-66.66%); }     /*Volta para a primeira imagem*/
+}
+
+.fonte_padrao {
+  margin-right: 5%;    /* reduz 20% da margem à direita */
+  margin-left: 1%;    /* alinha o conteúdo à esquerda */
+  max-width: 1200px;     /* opcional: para limitar a largura total */
+  padding: 0 16px;      /* espaçamento interno lateral */
+  font-size: 20px;
+}
+

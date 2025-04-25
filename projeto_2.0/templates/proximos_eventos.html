@@ -1,38 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Próximos Eventos</title>
-  <link rel="stylesheet" href="/static/estilos.css">
-</head>
-<body>
-  <header>
-    <img src="/static/img/logo.png" alt="Logo Rotary">
-    <nav>
-      <a href="{{ url_for('home') }}">Home</a>
-      <a href="{{ url_for('quem_somos') }}">Quem Somos</a>
-      <a href="{{ url_for('eventos') }}">Eventos</a>
-      <a href="{{ url_for('doacao') }}">Doação</a>
-      <a href="{{ url_for('contas') }}">Contas</a>
-      <a href="{{ url_for('contato') }}">Contato</a>
-      <a href="{{ url_for('redes_sociais') }}">Redes Sociais</a>
-      <a href="{{ url_for('galeria') }}">Galeria</a>
-    </nav>
-  </header>
-  <main>
-    <h1>Próximos Eventos</h1>
-    
-<ul>
-  <li>Evento 1</li>
-  <li>Evento 2</li>
-  <li>Evento 3</li>
-  <li>Evento 4</li>
-</ul>
+{% extends 'base.html' %}
 
-    <p><a href="{{ url_for('eventos') }}">Voltar</a></p>
-  </main>
-  <footer>
-    Rotary Club Bariri 16 de Junho - Todos os direitos reservados
-  </footer>
-</body>
-</html>
+{% block title %}Próximos Eventos{% endblock %}
+
+{% block content %}
+  <h2>Próximos Eventos</h2>
+
+  <ul>
+    <li>Evento 1</li>
+    <li>Evento 2</li>
+    <li>Evento 3</li>
+    <li>Evento 4</li>
+  </ul>
+
+  <p><a href="{{ url_for('eventos') }}">Voltar</a></p>
+{% endblock %}
