@@ -61,13 +61,14 @@ footer {
 }
 
 .logo {
-  width: 150px;
+  width: 300px;
   height: auto;
   background-color: transparent !important;
+  margin-left:10%
 }
 
 .titulo {
-  text-align: center;
+  text-align: right;
 }
 
 /* Elemento começa fora da tela, à esquerda */
@@ -144,7 +145,7 @@ button {
 
 .fonte_padrao {
   margin-right: 5%;    /* reduz 20% da margem à direita */
-  margin-left: 1%;    /* alinha o conteúdo à esquerda */
+  margin-left:1%;     /* alinha o conteúdo à esquerda */
   max-width: 1200px;     /* opcional: para limitar a largura total */
   padding: 0 16px;      /* espaçamento interno lateral */
   font-size: 20px;
