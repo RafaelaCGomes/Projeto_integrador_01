@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Novo Evento{% endblock %}
+
+{% block content %}
+<div class="fonte_padrao">
+  <h2>Criar Novo Evento</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <label for="title">Título:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="content">Descrição:</label><br>
+    <textarea id="content" name="content" required></textarea><br><br>
+
+    <label for="image">Imagem (opcional):</label>
+    <input type="file" name="image"><br><br>
+
+    <button type="submit">Salvar</button>
+  </form>
+
+  <p><a href="{{ url_for('proximos_eventos') }}">Voltar</a></p>
+</div>
+{% endblock %}

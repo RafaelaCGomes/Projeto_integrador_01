@@ -7,11 +7,24 @@
   <h2>Próximos Eventos</h2>
 
   <ul>
-    <li>Evento 1</li>
-    <li>Evento 2</li>
-    <li>Evento 3</li>
-    <li>Evento 4</li>
+    {% for post in posts %}
+      <li>
+        <strong>{{ post.title }}</strong><br>
+        {{ post.content }}<br>
+        <small>Criado em: {{ post.created.strftime('%d/%m/%Y %H:%M') }}</small>
+        <form action="{{ url_for('deletar_evento', post_id=post.id) }}" method="post" style="display:inline;">
+          <button type="submit" onclick="return confirm('Tem certeza que deseja apagar este evento?');">Apagar</button>
+          {% if post.image_filename %}
+          <img src="{{ url_for('static', filename='img/uploads/' + post.image_filename) }}" alt="{{ post.title }}">
+          {% endif %}
+        </form>
+      </li>
+    {% else %}
+      <li>Sem eventos cadastrados.</li>
+    {% endfor %}
   </ul>
+  <p><a href="{{ url_for('novo_evento') }}">Criar Novo Evento</a></p>
 </div>
-  <p><a href="{{ url_for('eventos') }}">Voltar</a></p>
+
+<p><a href="{{ url_for('eventos') }}">Voltar</a></p>
 {% endblock %}
