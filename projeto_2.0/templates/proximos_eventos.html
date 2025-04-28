@@ -3,7 +3,7 @@
 {% block title %}Próximos Eventos{% endblock %}
 
 {% block content %}
-<div class="fonte_padrao">
+<div class="fonte_eventos">
   <h2>Próximos Eventos</h2>
 
   <ul>
@@ -11,13 +11,17 @@
       <li>
         <strong>{{ post.title }}</strong><br>
         {{ post.content }}<br>
+
         <small>Criado em: {{ post.created.strftime('%d/%m/%Y %H:%M') }}</small>
+
+        {% if post.image_filename %}
+        <img src="{{ url_for('static', filename='img/uploads/' + post.image_filename) }}" alt="{{ post.title }}">
+        {% endif %}
+
         <form action="{{ url_for('deletar_evento', post_id=post.id) }}" method="post" style="display:inline;">
           <button type="submit" onclick="return confirm('Tem certeza que deseja apagar este evento?');">Apagar</button>
-          {% if post.image_filename %}
-          <img src="{{ url_for('static', filename='img/uploads/' + post.image_filename) }}" alt="{{ post.title }}">
-          {% endif %}
         </form>
+        
       </li>
     {% else %}
       <li>Sem eventos cadastrados.</li>
