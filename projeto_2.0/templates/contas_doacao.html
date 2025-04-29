@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Fazer Doação{% endblock %}
+
+{% block content %}
+<div class="fonte_padrao">
+  <h2>Escolha como deseja fazer sua doação!</h2>
+  <ul>
+    <li> 
+        <strong>Depósitos ou Transferências</strong> <br>
+         Banco do Brasil (001) <br> Agência 6895-0 <br> Conta Corrente 7993-6 
+    </li>
+    <li>
+        <strong>PIX</strong><br>
+        CNPJ 17130846000149 <br> Razão Social? <br> QRcode?
+    </li>
+  </ul>
+  
+</div>
+  <p><a href="{{ url_for('doacao') }}">Voltar</a></p>
+{% endblock %}

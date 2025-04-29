@@ -65,6 +65,9 @@ def proximos_eventos():
     posts = Posts.query.all()
     return render_template('proximos_eventos.html', posts=posts)
 
+@app.route('/contas_doacao')
+def contas_doacao():
+    return render_template('contas_doacao.html')
 
 @app.route('/deletar_evento/<int:post_id>', methods=['POST'])
 def deletar_evento(post_id):
