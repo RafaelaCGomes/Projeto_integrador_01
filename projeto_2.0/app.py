@@ -6,6 +6,8 @@ from flask import request, redirect, url_for
 from flask import request, redirect, url_for
 from flask import request, redirect, url_for
 from werkzeug.utils import secure_filename
+from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
+from flask import flash
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_file = "sqlite:///{}".format(os.path.join(project_dir, "database.db"))
@@ -21,6 +23,46 @@ class Posts(db.Model):
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.String(200), nullable=False)
     image_filename = db.Column(db.String(200))
+
+#Modelo de usuário
+class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)  # Pode ser hash se quiser segurança extra
+
+login_manager = LoginManager()
+login_manager.login_view = 'login'
+login_manager.init_app(app)
+
+#Config. flask login
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+#Rota de login
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']  # Em produção, use hash + verificação
+
+        user = User.query.filter_by(username=username, password=password).first()
+
+        if user:
+            login_user(user)
+            return redirect(url_for('home'))
+        else:
+            flash('Usuário ou senha inválidos')
+
+    return render_template('login.html')
+
+#Rota de logout
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
 
 
 @app.route('/')
@@ -70,6 +112,7 @@ def contas_doacao():
     return render_template('contas_doacao.html')
 
 @app.route('/deletar_evento/<int:post_id>', methods=['POST'])
+@login_required #add requerimento de login
 def deletar_evento(post_id):
     post = Posts.query.get_or_404(post_id)
     db.session.delete(post)
@@ -87,6 +130,7 @@ def allowed_file(filename):
 
 # Função para criar um novo evento
 @app.route('/novo_evento', methods=['GET', 'POST'])
+@login_required #add requerimento de login
 def novo_evento(): 
     if request.method == 'POST':
         print("Formulário enviado")

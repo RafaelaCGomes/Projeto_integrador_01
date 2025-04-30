@@ -18,16 +18,20 @@
         <img src="{{ url_for('static', filename='img/uploads/' + post.image_filename) }}" alt="{{ post.title }}">
         {% endif %}
 
+        <!-- Mostrar botão deletar só se logado -->
+        {% if current_user.is_authenticated %}
         <form action="{{ url_for('deletar_evento', post_id=post.id) }}" method="post" style="display:inline;">
           <button type="submit" onclick="return confirm('Tem certeza que deseja apagar este evento?');">Apagar</button>
         </form>
-        
+        {% endif %}
       </li>
     {% else %}
       <li>Sem eventos cadastrados.</li>
     {% endfor %}
   </ul>
+  {% if current_user.is_authenticated %}
   <p><a href="{{ url_for('novo_evento') }}">Criar Novo Evento</a></p>
+  {% endif %}
 </div>
 
 <p><a href="{{ url_for('eventos') }}">Voltar</a></p>
