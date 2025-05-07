@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Nova Postagem{% endblock %}
+
+{% block content %}
+<div class="fonte_padrao">
+  <h2>Criar Nova Postagem</h2>
+  <form action="{{ url_for('novo_galeria') }}" method="POST" enctype="multipart/form-data">
+    <label for="title">Título:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="content">Descrição:</label><br>
+    <textarea id="content" name="content" required></textarea><br><br>
+
+    <label for="images">Imagem (opcional):</label>
+    <input type="file" name="images" multiple><br><br>
+
+    <button type="submit">Salvar</button>
+  </form>
+
+  <p><a href="{{ url_for('galeria') }}">Voltar</a></p>
+</div>
+{% endblock %}

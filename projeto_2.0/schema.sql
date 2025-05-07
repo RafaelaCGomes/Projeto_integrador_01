@@ -7,3 +7,13 @@ CREATE TABLE posts (
     content TEXT NOT NULL
     image_filename TEXT
 );
+
+DROP TABLE IF EXISTS galeria;
+
+CREATE TABLE galeria (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    image_filename TEXT
+);

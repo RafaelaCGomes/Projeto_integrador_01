@@ -1,11 +1,40 @@
 {% extends 'base.html' %}
 
-{% block title %}Galeria de Fotos{% endblock %}
+{% block title %}Galeria{% endblock %}
 
 {% block content %}
-<div class="fonte_padrao">
-  <h2>Galeria de Fotos</h2>
-  <p>Veja momentos especiais dos nossos eventos!</p>
+<div class="fonte_eventos">
+  <h2>Galeria</h2>
+
+  <ul>
+    {% for post in posts %}
+      <li>
+        <strong>{{ post.title }}</strong><br>
+        {{ post.content }}<br>
+
+        <small>Criado em: {{ post.created.strftime('%d/%m/%Y %H:%M') }}</small>
+
+        <!-- Mostrar as imagens associadas a cada postagem -->
+        {% for image_filename in post.image_filenames.split(';') if image_filename %}
+        <img src="{{ url_for('static', filename='img/galeria/' + image_filename) }}" alt="{{ post.title }}" style="max-width: 100%; height: auto; margin-top: 10px;">
+        {% endfor %}
+
+        <!-- Mostrar botão deletar só se logado -->
+        {% if current_user.is_authenticated %}
+        <form action="{{ url_for('deletar_galeria', post_id=post.id) }}" method="post" style="display:inline;">
+          <button type="submit" onclick="return confirm('Tem certeza que deseja apagar esta postagem?');">Apagar</button>
+        </form>
+        {% endif %}
+      </li>
+    {% else %}
+      <li>Sem fotos cadastradas.</li>
+    {% endfor %}
+  </ul>
+
+  {% if current_user.is_authenticated %}
+    <p><a href="{{ url_for('novo_galeria') }}">Criar Nova Postagem</a></p>
+  {% endif %}
 </div>
-  <p><a href="{{ url_for('home') }}">Voltar</a></p>
+
+<p><a href="{{ url_for('galeria') }}">Voltar</a></p>
 {% endblock %}
